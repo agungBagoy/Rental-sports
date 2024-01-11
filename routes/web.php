@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\peminjamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/home', function () {
     return view('index');
 });
+
+
+Route::get('/form',[peminjamController::class,'peminjaman']);
+Route::post('/formAdd',[peminjamController::class,'peminjamanAdd']);
+Route::get('/formDelete/{id}',[peminjamController::class,'formDelete']);
+Route::get('/formEdit/{id}',[peminjamController::class,'formEdit']);
+Route::post('/formUpdate/{id}',[peminjamController::class,'formUpdate']);
+
+Route::get('/dataPeminjam',[peminjamController::class,'dataPeminjam']);
+
+
+
+
+
